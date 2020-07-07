@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+*{
+	font-family: 'Poppins';
+}
+
+.specchietto{
+    display: inline-block;
+    margin-right: 40px;
+    vertical-align: top;
+}
+
+.form{
+    border: 1px solid gray;
+    padding:5px;
+    width: min-content;
+}
+
+.inputText{
+    margin: 5px;
+    width: 100px;
+}
+
+.ustable, th, td{
+    border: 1px solid gray;
+}
+
+.btn{
+    background-color: steelblue;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    color: white;
+}

@@ -1,0 +1,24 @@
+<h1>NGRX Store Demo3 with Effecs</h1>
+<div class="container">
+    <div class="specchietto">
+        <div class="containerUser">
+            <h3>Add User</h3>
+            <form class="form" [formGroup]="addNewUserForm">
+                <input class="inputText" type="text" formControlName="name" placeholder="name">
+                <input class="inputText" type="text" formControlName="age" placeholder="age">
+
+                <button class="btn" (click)="addNewUser()">Add User</button>
+            </form>
+            <h3>Users (they are sorted by the age):</h3>
+            <table>
+                <tr>
+                    <th>name</th><th>age</th>
+                </tr>
+                <tr *ngFor="let user of users$ | async">
+                    <td>{{user.name}}</td><td>{{user.age}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
