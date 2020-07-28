@@ -23,14 +23,14 @@ export class AppComponent implements OnInit{
 
     constructor(private store:Store<StoreState>){}
 
-    ngOnInit(){
+    ngOnInit():void{
 
         this.store.dispatch(usersActions.getAllUsers())
         this.users$ = this.store.pipe( select(getAllUsers))
 
     }
 
-    addNewUser(){
+    addNewUser():void{
         let newUser:User = {
             name:String(this.addNewUserForm.controls.name.value),
             age:Number(this.addNewUserForm.controls.age.value)

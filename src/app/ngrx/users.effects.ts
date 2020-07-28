@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects'
 import { map, mergeMap } from 'rxjs/operators'
-import { HttpService } from '../http.service'
+import { MockService } from '../mock.service'
 import * as usersAction from './users.actions'
 import { getAllUsersSuccess, addNewUserSuccess } from './users.actions';
 import { User } from './models';
@@ -9,7 +9,7 @@ import { User } from './models';
 @Injectable()
 export class UsersEffects {
 
-    constructor( private actions$: Actions, private httpService: HttpService ) {}
+    constructor( private actions$: Actions, private httpService: MockService ) {}
  
     //createEffect() return an Action type Observable
     addNewUser$ = createEffect(() => 

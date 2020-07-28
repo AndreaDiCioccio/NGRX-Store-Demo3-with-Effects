@@ -1,21 +1,19 @@
 import { Injectable } from "@angular/core"
-import { users } from 'src/environments/environment';
+import { users } from 'src/app/mockdata';
 import { User } from './ngrx/models';
-import { from, of } from 'rxjs';
+import { from, of, Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
-export class HttpService {
+export class MockService {
 
-    constructor(){}
-
-    addNewUser(user:User){
+    addNewUser(user:User):Observable<User>{
 
         users.push({name:user.name, age:user.age })
         return from([user])
 
     }
 
-    getAllUsers(){
+    getAllUsers():Observable<User[]>{
         return of(users)
     }
 

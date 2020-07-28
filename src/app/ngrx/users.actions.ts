@@ -6,7 +6,7 @@ export const getAllUsers = createAction(
 )
 
 export const getAllUsersSuccess = createAction(
-    '[Home Effects] Get All Users Success',
+    '[Users Effects] Get All Users Success',
     props<{users:User[]}>()
 )
 
@@ -16,6 +16,6 @@ export const addNewUser = createAction(
 )
 
 export const addNewUserSuccess = createAction(
-    '[Home Effects] Add New User Success',
+    '[Users Effects] Add New User Success',
     props< {user:User} >()
 )
