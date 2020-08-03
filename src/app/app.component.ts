@@ -32,6 +32,7 @@ export class AppComponent implements OnInit{
 
     addNewUser():void{
         let newUser:User = {
+            id:null,
             name:String(this.addNewUserForm.controls.name.value),
             age:Number(this.addNewUserForm.controls.age.value)
         }
