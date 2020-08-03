@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { createEffect, ofType, Actions } from '@ngrx/effects'
-import { map, mergeMap } from 'rxjs/operators'
+import { map, mergeMap, catchError, tap } from 'rxjs/operators'
 import { MockService } from '../mock.service'
 import * as usersAction from './users.actions'
-import { getAllUsersSuccess, addNewUserSuccess } from './users.actions';
+import { getAllUsersSuccess, addNewUserSuccess, addNewUserError } from './users.actions';
 import { User } from './models';
+import { of } from 'rxjs';
 
 @Injectable()
 export class UsersEffects {
@@ -15,8 +16,10 @@ export class UsersEffects {
     addNewUser$ = createEffect(() => 
         this.actions$.pipe(
             ofType(usersAction.addNewUser),
+            tap( () => console.log('effect')),
             mergeMap((action) => this.httpService.addNewUser(action.user)),
-            map((user:User) => addNewUserSuccess({user}))
+            map((user:User) => addNewUserSuccess({user})),
+            catchError( (error) => of(addNewUserError({error})))
         )
     )
 

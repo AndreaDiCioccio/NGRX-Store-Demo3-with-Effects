@@ -19,3 +19,8 @@ export const addNewUserSuccess = createAction(
     '[Users Effects] Add New User Success',
     props< {user:User} >()
 )
+
+export const addNewUserError = createAction(
+    '[Users Effects] Add New User Error',
+    props< {error:any} >()
+)
