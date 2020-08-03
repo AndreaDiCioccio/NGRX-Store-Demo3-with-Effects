@@ -8,7 +8,9 @@ export class MockService {
 
     addNewUser(user:User):Observable<User>{
 
-        users.push({name:user.name, age:user.age })
+        let newId:number = Math.max.apply(Math, users.map(function(o) { return o.id; }))
+        newId++
+        users.push({id:newId, name:user.name, age:user.age })
         return from([user])
 
     }

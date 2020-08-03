@@ -4,8 +4,7 @@ import * as usersActions from './users.actions'
 import { User, compareUsers, UsersState } from './models';
 
 export const adapter = createEntityAdapter<User>({
-    sortComparer:compareUsers,
-    selectId:user => user.age
+    sortComparer:compareUsers
 })
 
 export const initialUsersState = adapter.getInitialState()

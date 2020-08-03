@@ -1,6 +1,7 @@
 import { EntityState } from '@ngrx/entity';
 
 export interface User {
+    id:number
     name:string
     age:number
 }
