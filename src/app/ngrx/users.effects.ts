@@ -16,7 +16,6 @@ export class UsersEffects {
     addNewUser$ = createEffect(() => 
         this.actions$.pipe(
             ofType(usersAction.addNewUser),
-            tap( () => console.log('effect')),
             mergeMap((action) => this.httpService.addNewUser(action.user)),
             map((user:User) => addNewUserSuccess({user})),
             catchError( (error) => of(addNewUserError({error})))

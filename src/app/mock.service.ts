@@ -9,7 +9,6 @@ export class MockService {
     addNewUser(user:User):Observable<User>{
 
         users.push({name:user.name, age:user.age })
-        console.log('users:', users)
         return from([user])
 
     }
