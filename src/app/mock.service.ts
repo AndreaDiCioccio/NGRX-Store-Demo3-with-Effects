@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core"
-import { users } from 'src/app/mockdata';
+import { users } from './mockdata';
 import { User } from './ngrx/models';
 import { from, of, Observable } from 'rxjs';
 
