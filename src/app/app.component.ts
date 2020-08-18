@@ -5,13 +5,15 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { getAllUsers } from './ngrx/users.selectors';
 import { addNewUser } from './ngrx/users.actions';
 import * as usersActions from './ngrx/users.actions'
-import { User, StoreState } from './ngrx/models';
+import { StoreState } from './ngrx/models';
+import { User } from './interfaces'
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit{
   
     users$:Observable<User[]>
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit{
     }
 
     addNewUser():void{
+        
         let newUser:User = {
             id:null,
             name:String(this.addNewUserForm.controls.name.value),
@@ -38,6 +41,7 @@ export class AppComponent implements OnInit{
         }
 
         this.store.dispatch(addNewUser({user:newUser}))
+    
     }
 
 }

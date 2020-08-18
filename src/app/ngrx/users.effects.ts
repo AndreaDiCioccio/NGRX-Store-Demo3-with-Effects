@@ -4,7 +4,7 @@ import { map, mergeMap, catchError, tap } from 'rxjs/operators'
 import { MockService } from '../mock.service'
 import * as usersAction from './users.actions'
 import { getAllUsersSuccess, addNewUserSuccess, addNewUserError } from './users.actions';
-import { User } from './models';
+import { User } from '../interfaces';
 import { of } from 'rxjs';
 
 @Injectable()

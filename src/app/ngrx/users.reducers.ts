@@ -1,7 +1,8 @@
 import { createReducer, on, State, Action } from '@ngrx/store';
 import { createEntityAdapter } from '@ngrx/entity';
 import * as usersActions from './users.actions'
-import { User, compareUsers, UsersState } from './models';
+import { compareUsers, UsersState } from './models';
+import { User } from '../interfaces';
 
 export const adapter = createEntityAdapter<User>({
     sortComparer:compareUsers
