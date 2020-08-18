@@ -5,7 +5,7 @@
             <h3>Add User</h3>
             <form class="form" [formGroup]="addNewUserForm">
                 <input class="inputText" type="text" formControlName="name" placeholder="name">
-                <input class="inputText" type="text" formControlName="age" placeholder="age">
+                <input class="inputText" type="number" formControlName="age" placeholder="age">
 
                 <button class="btn" (click)="addNewUser()">Add User</button>
             </form>

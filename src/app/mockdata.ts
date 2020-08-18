@@ -1,4 +1,4 @@
-import { User } from './ngrx/models';
+import { User } from './interfaces';
 
 export let users:User[] = [
     { id:0, name:'paperone', age:70 },

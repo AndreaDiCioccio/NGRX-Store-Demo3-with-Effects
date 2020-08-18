@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { getAllUsers } from './ngrx/users.selectors';
 import { addNewUser } from './ngrx/users.actions';
 import * as usersActions from './ngrx/users.actions'
@@ -19,8 +19,8 @@ export class AppComponent implements OnInit{
     users$:Observable<User[]>
 
     addNewUserForm = new FormGroup({
-        name: new FormControl(''),
-        age: new FormControl('')
+        name: new FormControl('', [Validators.required]),
+        age: new FormControl('', [Validators.required, Validators.min(1)])
     });
 
     constructor(private store:Store<StoreState>){}
@@ -40,7 +40,8 @@ export class AppComponent implements OnInit{
             age:Number(this.addNewUserForm.controls.age.value)
         }
 
-        this.store.dispatch(addNewUser({user:newUser}))
+        this.addNewUserForm.valid ? this.store.dispatch(addNewUser({user:newUser})) : null
+        
     
     }
 
