@@ -30,4 +30,11 @@ export class UsersEffects {
         )
     )
 
+    addNewUserError$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType(usersAction.addNewUserError),
+            tap( e => console.error(e))
+        )
+    )
+
 }
